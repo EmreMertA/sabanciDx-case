@@ -5,7 +5,7 @@
 npm install
 ```
 
-### Geliştirme için derlemeler ve hot-reload desteği için
+### Geliştirme için derlemeler için
 
 ```
 npm run dev
