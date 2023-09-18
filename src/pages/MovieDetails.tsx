@@ -35,12 +35,10 @@ const MovieDetails: React.FC<Props> = () => {
       )
       .then((response) => {
         setDetails(response.data);
-        console.log(response.data);
       })
       .catch((err) => console.error(err));
   }, [movieId]);
 
-  console.log(details);
   return (
     <div className='relative lg:h-[70vh] h-[130vh] flex justify-center  '>
       <div

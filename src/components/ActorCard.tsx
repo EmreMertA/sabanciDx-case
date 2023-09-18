@@ -15,7 +15,7 @@ const ActorCard: React.FC<Props> = ({
 
 
   const handleClick = (movieId: number) => {
-   // navigate(`/actor/${actorId}`);
+   navigate(`/actor/${actorId}`);
   };
   return (
     <div className='bg-white rounded-lg min-w-[13rem]  w-52'>
