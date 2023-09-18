@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useYear from '../hooks/useYearHook';
 const Hero: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const year = useYear();
   const navigate = useNavigate();
 
   const handleSearch = (event: any) => {
@@ -9,6 +11,9 @@ const Hero: React.FC = () => {
     if (searchTerm === '') return;
 
     navigate(`/search/${searchTerm.replace(' ', '-')}`);
+  };
+  const onChangeSelect = (event: any) => {
+    year.setYear(event.target.value);
   };
 
   return (
@@ -37,12 +42,17 @@ const Hero: React.FC = () => {
           />
           <select
             className='bg-gradient-to-r  h-full border text-black '
-            onClick={(e) => handleSearch(e)}
+            onClick={(e) => onChangeSelect(e)}
           >
-            <option value='year'>YEAR</option>
+            <option value='all'>YEAR</option>
             <option value='2023'>2023</option>
             <option value='2022'>2022</option>
             <option value='2021'>2021</option>
+            <option value='2020'>2020</option>
+            <option value='2019'>2019</option>
+            <option value='2018'>2018</option>
+            <option value='2017'>2017</option>
+            <option value='2016'>2016</option>
           </select>
           <button
             className='bg-gradient-to-r from-teal-400 to-blue-500 text-white px-4 py-2 rounded-r-full hover:from-teal-600 hover:to-blue-600 focus:outline-none'

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { MovieList } from '../types/MovieList';
 import ReactPaginate from 'react-paginate';
 import { Oval } from 'react-loader-spinner';
+import useYear from '../hooks/useYearHook';
 
 import styles from '../styles/pagination.module.css';
 
@@ -16,6 +17,8 @@ const Search: React.FC<Props> = () => {
   const parts = location.pathname.split('/');
   const movieTitle = parts[2].replace('-', ' ');
   const navigate = useNavigate();
+  const year = useYear();
+  console.log(year.year);
 
   const [searchTerm, setSearchTerm] = useState<string>(movieTitle);
   const [movies, setMovies] = useState<MovieList[]>();
@@ -36,7 +39,9 @@ const Search: React.FC<Props> = () => {
     setIsLoading(true);
     axios
       .get(
-        `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&page=${currentPage}`,
+        year.year === 'all'
+          ? `https://api.themoviedb.org/3/search/movie?query=${query}&page=${currentPage}&language=en-US`
+          : `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&primary_release_year=${year.year}&page=${currentPage}`,
         options
       )
       .then((response) => {
@@ -50,7 +55,7 @@ const Search: React.FC<Props> = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [currentPage,query]);
+  }, [currentPage, query, year.year]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -73,17 +78,28 @@ const Search: React.FC<Props> = () => {
   ));
 
   return (
-    <div >
+    <div>
       <div className='w-full flex justify-center items-center flex-col mb-3'>
         <form
           onSubmit={(e) => handleSubmit(e)}
           className='w-4/5 border-b-2  h-8 mb-4 flex flex-row justify-start items-center '
         >
           <AiOutlineSearch className='text-2xl mr-2' />
-          <select name='Year' id='' className='w-18 px-2  -2 rounded w'>
+          <select
+            name='Year'
+            id=''
+            className='w-18 px-2  -2 rounded w'
+            onChange={(e) => year.setYear(e.target.value)}
+          >
+            <option value='all'>YEAR</option>
             <option value='2023'>2023</option>
             <option value='2022'>2022</option>
             <option value='2021'>2021</option>
+            <option value='2020'>2020</option>
+            <option value='2019'>2019</option>
+            <option value='2018'>2018</option>
+            <option value='2017'>2017</option>
+            <option value='2016'>2016</option>
           </select>
           <input
             type='text'
