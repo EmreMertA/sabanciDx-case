@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Hero: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: any) => {
     event?.preventDefault();
     if (searchTerm === '') return;
 
@@ -23,8 +23,6 @@ const Hero: React.FC = () => {
         <span className='text-xl mb-8 text-center'>
           Millions of movies, TV shows and people to discover. Explore now.
         </span>
-
-        {/* Büyük arama kutusu ve düğme */}
         <form
           onSubmit={handleSearch}
           className='relative flex justify-center w-4/5 md:w-3/5 items-center'

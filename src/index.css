@@ -1,8 +1,31 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 .custom-gradient {
   background: linear-gradient(to right, #191A32, rgba(25, 26, 50, 0.95), rgba(25, 26, 50, 0.4));
 }
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #beb4c0 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #beb4c0;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
