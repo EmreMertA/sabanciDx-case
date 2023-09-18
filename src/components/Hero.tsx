@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Hero: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   const handleSearch = (event: any) => {
     event.preventDefault();
     if (searchTerm === '') return;
 
-    alert(`Searching for: ${searchTerm}`);
+    navigate(`/search/${searchTerm.replace(' ', '-')}`);
   };
 
   return (
@@ -39,7 +40,7 @@ const Hero: React.FC = () => {
             onClick={(e) => handleSearch(e)}
           >
             <option value='year'>YEAR</option>
-             <option value='2023'>2023</option>
+            <option value='2023'>2023</option>
             <option value='2022'>2022</option>
             <option value='2021'>2021</option>
           </select>

@@ -68,6 +68,7 @@ const Search: React.FC<Props> = () => {
       moviePosterPath={movie.poster_path}
       movieRating={movie.vote_average}
       releaseDate={movie.release_date}
+      movieId={movie.id}
     />
   ));
 
