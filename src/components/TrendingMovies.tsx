@@ -30,6 +30,7 @@ const TrendingMovies: React.FC<Props> = () => {
 
   }, []);
 
+  console.log(movies);
   return (
     <div className='w-full flex justify-center items-center flex-col '>
       <div className='flex flex-col w-4/5 flex-shrink-0'>
@@ -42,6 +43,7 @@ const TrendingMovies: React.FC<Props> = () => {
                 movieTitle={movie.title}
                 moviePosterPath={movie.poster_path}
                 movieRating={movie.vote_average}
+                releaseDate={movie.release_date}
               />
             ))}
           </div>

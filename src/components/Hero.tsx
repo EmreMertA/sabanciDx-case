@@ -4,7 +4,7 @@ const Hero: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event: any) => {
-    event?.preventDefault();
+    event.preventDefault();
     if (searchTerm === '') return;
 
     alert(`Searching for: ${searchTerm}`);
@@ -34,6 +34,15 @@ const Hero: React.FC = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <select
+            className='bg-gradient-to-r  h-full border text-black '
+            onClick={(e) => handleSearch(e)}
+          >
+            <option value='year'>YEAR</option>
+             <option value='2023'>2023</option>
+            <option value='2022'>2022</option>
+            <option value='2021'>2021</option>
+          </select>
           <button
             className='bg-gradient-to-r from-teal-400 to-blue-500 text-white px-4 py-2 rounded-r-full hover:from-teal-600 hover:to-blue-600 focus:outline-none'
             type='submit'

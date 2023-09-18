@@ -1,0 +1,43 @@
+
+.pagination {
+  list-style: none;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  
+}
+.link {
+  background: #626497;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 1rem 1.3rem;
+  border-radius: 10px;
+  transition: .18s ease;
+
+ 
+}
+.link :hover {
+  text-decoration: none;
+  background: #3c3d69;
+  color: #ffffff;
+}
+
+.activelink {
+  background: #191A32;
+  color: #ffffff;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .pagination{
+      margin:0;
+      padding: 0;
+  }
+  .link {
+      padding: .3rem;
+  }
+}

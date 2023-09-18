@@ -1,10 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-
+import Search from './pages/Search';
 
 const App: React.FC = () => {
- 
   return (
     <div className='flex flex-col w-full  max-w-[100vw] min-h-screen'>
       <Navbar />
@@ -12,7 +11,7 @@ const App: React.FC = () => {
       <div className=' h-full '>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/B' element={<div>B</div>} />
+          <Route path='/search/:movieId' element={<Search />} />
         </Routes>
       </div>
     </div>

@@ -7,13 +7,11 @@
   background: linear-gradient(to right, #191A32, rgba(25, 26, 50, 0.95), rgba(25, 26, 50, 0.4));
 }
 
+select:focus {
+  outline: none; 
+  border: 1px solid #ced4da; 
+}
 
-/* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #beb4c0 #ffffff;
-  }
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
@@ -29,3 +27,5 @@
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
+
+  
